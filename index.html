@@ -16,15 +16,36 @@
                     <label>Pilot Name <input type="text" name="pilotName" id="pilotName"/></label>
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Co-pilot Name <input type="text" name="copilotName"/></label>
+                    <label>Co-pilot Name <input type="text" name="copilotName" id="copilotName"/></label>
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Fuel Level (L) <input type="text" name="fuelLevel"/></label> 
+                    <label>Fuel Level (L) <input type="text" name="fuelLevel" id="fuelLevel"/></label> 
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Cargo Mass (kg) <input type="text" name="cargoMass"/></label>
+                    <label>Cargo Mass (kg) <input type="text" name="cargoMass" id="cargoMass"/></label>
                 </div>
                 <button id="formSubmit">Submit</button>
+                <script>
+                    window.addEventListener("load", function() {
+                        let form = document.querySelector("form");
+                        
+      form.addEventListener("submit", function(event) {
+         let pilotNameInput = document.querySelector("input[name=pilotName]");
+         let copilotNameInput = document.querySelector("input[name=copilotName]");
+         let fuelLevelInput = document.querySelector("input[name=fuelLevel");
+         let cargoMassInput = document.querySelector("input[name=cargoMass]");
+         if (pilotNameInput.value === "" || typeOf(pilotNameInput.value) !== String) {
+            alert("Input must be a name!");
+         }
+         if (copilotNameInput.value === "" || typeOf(copilotNameInput.value) !== String) {
+            alert("Input must be a name!");
+         }
+         if (fuelLevelInput.value === "" || isNaN(fuelLevelInput.value) === true) {
+            alert("Input must be a number!");
+         }
+         });
+      });
+                </script>
             </form>
         </div>
         <div id="launchStatusCheck">
