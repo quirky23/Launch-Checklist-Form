@@ -25,31 +25,12 @@
                     <label>Cargo Mass (kg) <input type="text" name="cargoMass" id="cargoMass"/></label>
                 </div>
                 <button id="formSubmit">Submit</button>
-                <script>
-                    window.addEventListener("load", function() {
-                        let form = document.querySelector("form");
-                        
-      form.addEventListener("submit", function(event) {
-         let pilotNameInput = document.querySelector("input[name=pilotName]");
-         let copilotNameInput = document.querySelector("input[name=copilotName]");
-         let fuelLevelInput = document.querySelector("input[name=fuelLevel");
-         let cargoMassInput = document.querySelector("input[name=cargoMass]");
-         if (pilotNameInput.value === "" || typeOf(pilotNameInput.value) !== String) {
-            alert("Input must be a name!");
-         }
-         if (copilotNameInput.value === "" || typeOf(copilotNameInput.value) !== String) {
-            alert("Input must be a name!");
-         }
-         if (fuelLevelInput.value === "" || isNaN(fuelLevelInput.value) === true) {
-            alert("Input must be a number!");
-         }
-         });
-      });
-                </script>
+                
             </form>
         </div>
         <div id="launchStatusCheck">
             <h2 id="launchStatus">Awaiting Information Before Launch</h2>
+            
             <div  id="faultyItems">
                 <ol>
                     <li id="pilotStatus">Pilot Ready</li>
