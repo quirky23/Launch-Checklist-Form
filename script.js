@@ -26,20 +26,20 @@ window.addEventListener("load", function() {
       if (pilotNameInput.value === "" || typeof pilotNameInput.value !== "string") {
          alert("Pilot input must be a name!");
       }  else {
-         document.getElementById("pilotName").innerHTML = `Pilot ${pilotNameInput.value} Ready`;
+         document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotNameInput.value} Ready`;
       }
       
       if (copilotNameInput.value === "" || typeof copilotNameInput.value !== "string") {
          alert("Co-Pilot input must be a name!");
       }  else {
-         document.getElementById("copilotName").innerHTML = `Co-Pilot ${copilotNameInput.value} Ready`;
+         document.getElementById("copilotStatus").innerHTML = `Co-Pilot ${copilotNameInput.value} Ready`;
       }
 
       if (fuelLevelInput.value === "" || isNaN(Number(fuelLevelInput.value)) === true) {
          alert("Fuel Level must be a number!");
       }
       if (cargoMassInput.value === "" || isNaN(Number(cargoMassInput.value)) === true) {
-            alert("Cargo Mass must be a number!");
+         alert("Cargo Mass must be a number!");
       }      
       
       if (fuelLevelInput.value < 10000) {
@@ -54,6 +54,7 @@ window.addEventListener("load", function() {
             document.getElementById("cargoStatus").innerHTML = `Cargo mass of ${cargoMassInput.value} is too high for launch!`;
             document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch`;
             document.getElementById("launchStatus").style.color = "red"; 
+            event.preventDefault();
       }  else {      
          document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch!`;
          document.getElementById("launchStatus").style.color = "green";
