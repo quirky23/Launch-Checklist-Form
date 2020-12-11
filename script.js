@@ -41,8 +41,9 @@ window.addEventListener("load", function() {
          event.preventDefault();
        
       }  else {      
-         document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch!`;
+         document.getElementById("launchStatus").innerText = `Shuttle is ready for launch!\n\n Pilot "${pilotNameInput.value}" and Co-Pilot "${copilotNameInput.value}" are going to INFINITY AND BEYOND!`;
          document.getElementById("launchStatus").style.color = "green";
+         
       }
       event.preventDefault();
    })
