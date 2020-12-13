@@ -43,11 +43,12 @@ window.addEventListener("load", function() {
       }  else {      
          document.getElementById("launchStatus").innerText = `Shuttle is ready for launch!\n\n Pilot "${pilotNameInput.value}" and Co-Pilot "${copilotNameInput.value}" are going to INFINITY AND BEYOND!`;
          document.getElementById("launchStatus").style.color = "green";
-         
       }
       event.preventDefault();
-   })
 
+      
+   })
+   
    fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
       response.json().then( function(json) {
          const planet = document.getElementById("missionTarget");
