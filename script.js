@@ -9,8 +9,10 @@ window.addEventListener("load", function () {
          isNaN(Number(copilotNameInput.value)) === false ||
          isNaN(Number(pilotNameInput.value)) === false
       ) {
-         event.stopPropagation();
+         //document.getElementById("pilotName").value = "";
+         //document.getElementById("copilotName").value = "";
          alert("Names cannot be blank OR a number. Please re-enter NAME.");
+         submit.preventDefault();
       } else {
          document.getElementById(
             "pilotStatus"
@@ -54,7 +56,9 @@ window.addEventListener("load", function () {
       }
       event.preventDefault();
    });
-
+   form.addEventListener("reset", function (event) {
+      window.location.reload();
+   });
    fetch("https://handlers.education.launchcode.org/static/planets.json").then(
       function (response) {
          response.json().then(function (json) {
