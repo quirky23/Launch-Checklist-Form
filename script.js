@@ -6,42 +6,25 @@ window.addEventListener("load", function () {
       let fuelLevelInput = document.getElementById("fuelLevel");
       let cargoMassInput = document.getElementById("cargoMass");
       if (
-         pilotNameInput.value === "" ||
+         isNaN(Number(copilotNameInput.value)) === false ||
          isNaN(Number(pilotNameInput.value)) === false
       ) {
-         alert("Pilot name cannot be blank OR a number. Please re-enter NAME.");
-         event.preventDefault();
+         event.stopPropagation();
+         alert("Names cannot be blank OR a number. Please re-enter NAME.");
       } else {
          document.getElementById(
             "pilotStatus"
          ).innerHTML = `Pilot "${pilotNameInput.value}" Ready`;
-      }
-
-      if (
-         copilotNameInput.value === "" ||
-         isNaN(Number(copilotNameInput.value)) === false
-      ) {
-         alert(
-            "Co-pilot name cannot be blank OR a number. Please re-enter NAME."
-         );
-         event.preventDefault();
-      } else {
          document.getElementById(
             "copilotStatus"
          ).innerHTML = `Co-Pilot "${copilotNameInput.value}" Ready`;
       }
 
       if (
-         fuelLevelInput.value === "" ||
+         isNaN(Number(cargoMassInput.value)) === true ||
          isNaN(Number(fuelLevelInput.value)) === true
       ) {
-         alert("Fuel Level must be a number!");
-      }
-      if (
-         cargoMassInput.value === "" ||
-         isNaN(Number(cargoMassInput.value)) === true
-      ) {
-         alert("Cargo Mass must be a number!");
+         alert("Fuel Level and Cargo Mass must both be numbers!");
       }
 
       if (fuelLevelInput.value < 10000 || cargoMassInput.value > 10000) {
@@ -56,14 +39,13 @@ window.addEventListener("load", function () {
                "fuelStatus"
             ).innerHTML = `Fuel level of ${fuelLevelInput.value} is too low for launch!`;
          }
-         event.preventDefault();
+
          if (cargoMassInput.value > 10000) {
             document.getElementById("cargoStatus").style.color = "red";
             document.getElementById(
                "cargoStatus"
             ).innerHTML = `Cargo mass of ${cargoMassInput.value} is too high for launch!`;
          }
-         event.preventDefault();
       } else {
          document.getElementById(
             "launchStatus"
